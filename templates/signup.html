@@ -1,4 +1,4 @@
-$def with(v)
+<!doctype html>
 <head>
 	<style>
 		body {background-color:#D8CEF6;}
@@ -9,6 +9,7 @@ $def with(v)
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
+			border: 1px solid black;
 		}
 
 		#navbar li {
@@ -45,39 +46,111 @@ $def with(v)
 		#logo {
 			margin-left: 200px;
 		}
+		#text-cont {
+			padding-left: 10px;
+			padding-right: 10px;
+			width: 800px;
+			height: 600px;
+			background-color: #F5A9D0;
+			border: 4px solid black;
+			margin-top: 150px;
+			margin-left: 205px;
+		}
+
+		#header {
+			font-size: 30px;
+			font-family: cursive;
+			text-decoration: underline;
+		}
+
+		#text {
+			font-size: 20px;
+			font-family: Times;
+		}
+
+		#signup input {
+			display: block;
+		}
 	</style>
+	<script>
+		function visual(token) {
+			if (document.getElementById("other").style.display === "none" && token) {
+				document.getElementById("other").style.display = "inline-block"
+			}
+			else if (document.getElementById("other").style.display === "inline-block") {
+				document.getElementById("other").style.display = "none"
+			}
+		}
+	</script>
 </head>
 <body>
 	<img id="logo" src="http://i1279.photobucket.com/albums/y523/textcraft/May%202014%20-%204/89bea21e67034dadc172cf933564c50694b759ec60ac774774a656cdc479a88ffac116634f18a7e8da39a3ee5e6b4b0d3255bfef95601890afd80709c2f180e83efa9346f4d8_zps36dcc23f.png">
 	<div style="height: 20px"></div>
 	<ul id="navbar">
 		<li>
-			<a href="http://0.0.0.0:8080/">
+			<a href="http://pure-lake-2135.herokuapp.com/">
 				<div id="link">
 					Home
 				</div>
 			</a>
 		</li>
 		<li>
-			<a href="http://0.0.0.0:8080/about">
+			<a href="http://pure-lake-2135.herokuapp.com/about">
 				<div id="link">
 					About
 				</div>
 			</a>
 		</li>
 		<li>
-			<a href="http://0.0.0.0:8080/signup">
+			<a href="http://pure-lake-2135.herokuapp.com/signup">
 				<div id="link">
 					Sign-Up
 				</div>
 			</a>
 		</li>
 		<li>
-			<a href="http://0.0.0.0:8080/business">
+			<a href="http://pure-lake-2135.herokuapp.com/business">
 				<div id="link">
 					Business Plan
 				</div>
 			</a>
 		</li>
 	</ul>
+	<div id="text-cont">
+		<p id="header">Sign-Up Form</p>
+		<p id="text">Please fill out the following information to create your own charity!</p>
+		<form id="signup">
+			<u>First Name:</u> <input type="text" name="fname">
+			<br>
+			<u>Last Name:</u> <input type="text" name="lname">
+			<br>
+			<u>Charity Name:</u> <input type="text" name="cname">
+			<br>
+			<u>Item being Collected</u>: 
+			<br>
+			<input type="radio" name="item" value="water" style="display: inline-block" onchange="visual()" >Water
+			<input type="radio" name="item" value="ssup" style="display: inline-block" onchange="visual()" >School Supplies
+			<input type="radio" name="item" value="msup" style="display: inline-block" onchange="visual()" >Medical Supplies
+			<input type="radio" name="item" value="psup" style="display: inline-block" onchange="visual()" >Pet Supplies
+			<input type="radio" name="item" value="rsup" style="display: inline-block" onchange="visual()" >Recreational Supplies
+			<br>
+			<input type="radio" name="item" value="money" style="display: inline-block" onchange="visual()" >Money
+			<input type="radio" name="item" value="clothing" style="display: inline-block" onchange="visual()">Clothing
+			<input type="radio" name="item" value="elect" style="display: inline-block" onchange="visual()">Electronics
+			<input type="radio" name="item" value="ta" style="display: inline-block" onchange="visual()">Tools / Appliances
+			<br>
+			<input type="radio" name="item" style="display: inline-block" onchange="visual(true)">Other: 
+				<input type="text" name="item" style="display: none" id="other">
+			<br>
+			<br>
+			<u>Mission Statement:</u> <br><textarea form="signup" name="statement"></textarea>
+			<br>
+			<br>
+			<u>Donation Amount ($):</u> <input type="text" name="amt">
+			<br>
+			<input type="submit">
+		</form>
+
+
+	</div>
 </body>
